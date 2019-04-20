@@ -1,0 +1,17 @@
+Include/
+scripts/
+lib/
+tcl/
+src/src/
+src/*/migrations/
+src\db.sqlite3
+src/*/__pycache__/
+src\*\migrations/
+node_modules
+
+
+
+src/manage.py
+pip-selfcheck.json
+*\db.sqlite3
+src/*/tests.py
