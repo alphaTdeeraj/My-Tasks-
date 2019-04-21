@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import TaskList from './tasks/TaskList'
+import store from '../store';
+
 export class App extends Component {
   render() {
     return (
-      <div>
-          <h2>this is from app component</h2>
-        
-      </div>
+      <Provider store={store}>
+        <TaskList />
+      </Provider>
     )
   }
 }
