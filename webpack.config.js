@@ -1,3 +1,4 @@
+
 module.exports = {
   module: {
     rules: [
@@ -6,8 +7,8 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
-        }
-      }
+        }	
+      },
     ]
   }
 }

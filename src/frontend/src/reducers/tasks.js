@@ -1,4 +1,4 @@
-import GET_TASKS from '../actions/types';
+import { GET_TASKS } from '../actions/types';
 
 
 
