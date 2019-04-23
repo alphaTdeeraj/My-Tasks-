@@ -1,13 +1,13 @@
 import axios from 'axios'
 import { getErrors, createMessage } from './messages'
-import { GET_TASKS, } from './types';
+import { GET_TASKS, ADD_TASK } from './types';
 
 export const getTasks = () => dispatch => {
     axios.get('/tasks/')
         .then(res => dispatch({
             type: GET_TASKS,
             payload: res.data
-        })).then(res => dispatch(createMessage('checking')))
+        }))
         .catch(err => dispatch(getErrors(err.data)))
 
 }
@@ -22,9 +22,12 @@ export const addTask = (name, description, deadline) => dispatch => {
         "category": "Learning",
         "deadline": deadline,
     }
-    console.log(`this is the body ${body.deadline}`)
     axios.post("/tasks/", body, config)
-        .then(res => console.log(res.data)).then(res => console.log('above was from response'))
+        .then(res => dispatch({
+            type: ADD_TASK,
+            payload: res.data
+        }))
+        .then(res => dispatch(createMessage('Task added')))
         .catch(err => dispatch(getErrors(err.data)))
 }
 
@@ -38,6 +41,6 @@ export const markComplete = (id) => dispatch => {
 
     }
     axios.patch(`/tasks/${id}/`, body, config)
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err.data))
+        .then(res => dispatch(createMessage('task completed , keep on going .')))
+        .catch(err => dispatch(getErrors(err.data)))
 }

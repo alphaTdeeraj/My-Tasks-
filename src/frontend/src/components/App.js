@@ -13,7 +13,7 @@ import NavBar from './layouts/NavBar';
 import Alerts from './layouts/Alerts'
 
 import store from '../store';
-import { TaskForm } from './tasks/TaskForm';
+import TaskForm from './tasks/TaskForm';
 
 
 const alertOptions = {

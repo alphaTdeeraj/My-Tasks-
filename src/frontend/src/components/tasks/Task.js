@@ -5,7 +5,7 @@ import { markComplete } from '../../actions/tasks'
 class Task extends Component {
 
     render() {
-        const { id, name, description, startdate, deadline } = this.props.task
+        const { category, completed, deadline, description, id, name, start } = this.props.task
         return (
             <div style={{ width: '60rem', }} className=' dark col-md-6 my-1'>
                 <div className="card mx-3 p-3" >
@@ -20,6 +20,5 @@ class Task extends Component {
         )
     }
 }
-
 
 export default connect(null, { markComplete })(Task)

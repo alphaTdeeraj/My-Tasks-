@@ -8,22 +8,27 @@ class NavBar extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                            <a className="navbar-brand" href="#">Home</a>
+                            <span className="navbar-text lead font-italic mx-2">
+                                <NavLink to='/'>Home</NavLink>
+                            </span>
+
                             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse" id="navbarText">
                                 <ul className="navbar-nav mr-auto">
                                 </ul>
-                                <span className="navbar-text lead mx-2">
-                                    <NavLink to='/add-task/'>Add Task</NavLink>
-                                </span>
-                                <span className="navbar-text lead mx-2">
-                                    <NavLink to='/'>Login</NavLink>
-                                </span>
-                                <span className="navbar-text lead mx-2">
-                                    <NavLink to='/'>Register</NavLink>
-                                </span>
+                                <ul className="navbar-nav ">
+                                    <span className="navbar-text lead mx-2">
+                                        <NavLink to='/add-task/'>Add Task</NavLink>
+                                    </span>
+                                    <span className="navbar-text lead mx-2">
+                                        <NavLink to='/'>Login</NavLink>
+                                    </span>
+                                    <span className="navbar-text lead mx-2">
+                                        <NavLink to='/'>Register</NavLink>
+                                    </span>
+                                </ul>
                             </div>
                         </nav>
                     </div>

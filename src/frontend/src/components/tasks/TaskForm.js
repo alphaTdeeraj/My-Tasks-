@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { addTask } from '../../actions/tasks';
+import { addTask } from '../../actions/tasks'
 
 
-export class TaskForm extends Component {
+class TaskForm extends Component {
 
     state = {
         name: '',
@@ -13,9 +14,17 @@ export class TaskForm extends Component {
     }
 
     onChange = (e) => this.setState({ [e.target.name]: e.target.value })
+
     onSubmit = e => {
+        const { name, description, deadline } = this.state
         e.preventDefault()
-        this.props.addTask(this.state.name, this.state.description, this.state.deadline)
+        this.props.addTask(name, description, deadline)
+        this.props.history.push("/")
+        this.setState({
+            name: '',
+            description: '',
+            deadline: new Date(Date.now()),
+        })
     }
 
     render() {
@@ -67,4 +76,4 @@ export class TaskForm extends Component {
     }
 }
 
-export default connect(null, { addTask })(TaskForm)
+export default connect(null, { addTask, })(TaskForm)
