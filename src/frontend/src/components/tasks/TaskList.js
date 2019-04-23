@@ -14,6 +14,7 @@ class TaskList extends Component {
     render() {
         return (
             <div className='container mt-1 ml-3'>
+                <h2 className='text-center font-weight-bolder font-italic '>Your Tasks </h2>
                 <div className='row'>
                     {this.props.tasks.map(task => (<Task key={task.id} task={task} />))}
                 </div>

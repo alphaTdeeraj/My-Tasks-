@@ -9,6 +9,7 @@ class Task(models.Model):
     category    = models.CharField(max_length=20,choices=categoryList() , blank=False , null=False)
     start       = models.DateField(auto_now_add=True)
     deadline    = models.DateField()
+    completed   = models.BooleanField(default=False)
     
     def __str__(self):
         return self.name

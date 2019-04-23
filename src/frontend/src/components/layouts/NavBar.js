@@ -1,21 +1,33 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
 
 class NavBar extends Component {
     render() {
         return (
-            <div>
-                <nav className="navbar  navbar-light bg-light">
-                    <span className="navbar-brand my-3 leadf mt-3">Home</span>
-                    <ul className="nav justify-content-end">
-                        <li className="nav-item">
-                            <a className="nav-link h1 lead mt-2" href="#">Login</a>
-                        </li>
-                        <li className='mt-3'>|</li>
-                        <li className="nav-item">
-                            <a className="nav-link h1 lead mt-2" href="#">Register</a>
-                        </li>
-                    </ul>
-                </nav>
+            <div className='container-fluid'>
+                <div className='row'>
+                    <div className='col-12'>
+                        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                            <a className="navbar-brand" href="#">Home</a>
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon"></span>
+                            </button>
+                            <div className="collapse navbar-collapse" id="navbarText">
+                                <ul className="navbar-nav mr-auto">
+                                </ul>
+                                <span className="navbar-text lead mx-2">
+                                    <NavLink to='/add-task/'>Add Task</NavLink>
+                                </span>
+                                <span className="navbar-text lead mx-2">
+                                    <NavLink to='/'>Login</NavLink>
+                                </span>
+                                <span className="navbar-text lead mx-2">
+                                    <NavLink to='/'>Register</NavLink>
+                                </span>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
             </div>
         )
     }

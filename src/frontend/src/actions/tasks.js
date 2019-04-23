@@ -7,7 +7,7 @@ export const getTasks = () => dispatch => {
         .then(res => dispatch({
             type: GET_TASKS,
             payload: res.data
-        })).then(res => dispatch(createMessage('Loaded your task')))
+        })).then(res => dispatch(createMessage('checking')))
         .catch(err => dispatch(getErrors(err.data)))
 
 }
@@ -15,9 +15,6 @@ export const getTasks = () => dispatch => {
 export const addTask = (name, description, deadline) => dispatch => {
     const config = {
         "Content-Type": 'application/json',
-        "headers": {
-            'X-CSRFToken': '{{csrf_token}}'
-        }
     }
     const body = {
         "name": name,
@@ -29,4 +26,18 @@ export const addTask = (name, description, deadline) => dispatch => {
     axios.post("/tasks/", body, config)
         .then(res => console.log(res.data)).then(res => console.log('above was from response'))
         .catch(err => dispatch(getErrors(err.data)))
+}
+
+
+export const markComplete = (id) => dispatch => {
+    const config = {
+        "Content-Type": 'application/json'
+    }
+    const body = {
+        "completed": true,
+
+    }
+    axios.patch(`/tasks/${id}/`, body, config)
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err.data))
 }
