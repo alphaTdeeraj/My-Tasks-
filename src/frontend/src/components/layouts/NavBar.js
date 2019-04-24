@@ -18,17 +18,17 @@ class NavBar extends Component {
                             <div className="collapse navbar-collapse" id="navbarText">
                                 <ul className="navbar-nav mr-auto">
                                 </ul>
-                                <ul className="navbar-nav ">
-                                    <span className="navbar-text lead mx-2">
-                                        <NavLink to='/add-task/'>Add Task</NavLink>
-                                    </span>
-                                    <span className="navbar-text lead mx-2">
-                                        <NavLink to='/'>Login</NavLink>
-                                    </span>
-                                    <span className="navbar-text lead mx-2">
-                                        <NavLink to='/'>Register</NavLink>
-                                    </span>
-                                </ul>
+
+                                <span className="navbar-text lead mx-4">
+                                    <NavLink to='/add-task/'>Add Task</NavLink>
+                                </span>
+                                <span className="navbar-text lead mx-4">
+                                    <NavLink to='/'>Login</NavLink>
+                                </span>
+                                <span className="navbar-text lead mx-4">
+                                    <NavLink to='/'>Register</NavLink>
+                                </span>
+
                             </div>
                         </nav>
                     </div>

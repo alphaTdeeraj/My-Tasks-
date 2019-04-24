@@ -10,4 +10,7 @@ class TaskAPI(viewsets.ModelViewSet):
         permissions.AllowAny,
     ]
     serializer_class = TaskSerializer
-    queryset = Task.objects.all()
+
+    def get_queryset(self):
+        query_set = Task.objects.filter(completed=False).order_by('-id')
+        return query_set

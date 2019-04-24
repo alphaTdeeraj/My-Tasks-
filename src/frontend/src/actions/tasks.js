@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { getErrors, createMessage } from './messages'
-import { GET_TASKS, ADD_TASK } from './types';
+import { GET_TASKS, ADD_TASK, MARK_COMPLETE } from './types';
 
 export const getTasks = () => dispatch => {
     axios.get('/tasks/')
@@ -41,6 +41,9 @@ export const markComplete = (id) => dispatch => {
 
     }
     axios.patch(`/tasks/${id}/`, body, config)
-        .then(res => dispatch(createMessage('task completed , keep on going .')))
+        .then(res => dispatch({
+            type: MARK_COMPLETE,
+            payload: id,
+        }))
         .catch(err => dispatch(getErrors(err.data)))
 }
