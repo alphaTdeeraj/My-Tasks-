@@ -1,16 +1,25 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
-import { withAlert } from 'react-alert'
-
+import Swal from 'sweetalert2'
 class Alerts extends Component {
 
   componentDidUpdate(prevProps) {
-    const { error, msg, alert } = this.props
+    const { error, msg } = this.props
     if (error !== prevProps.error) {
-      alert.error(error)
+      Swal.fire({
+        type: 'error',
+        title: 'Error ',
+        text: 'Please provide valid data ',
+      })
     }
     if (msg !== prevProps.msg) {
-      alert.success(msg)
+      Swal.fire({
+        position: 'inherit',
+        type: 'success',
+        title: msg,
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
 
 
@@ -28,4 +37,4 @@ const mapStateToProps = (state) => ({
 })
 
 
-export default connect(mapStateToProps)(withAlert(Alerts))
+export default connect(mapStateToProps)(Alerts)

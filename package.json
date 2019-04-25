@@ -24,7 +24,8 @@
     "react-transition-group": "^2.5.3",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.7",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "sweetalert2": "^8.8.7"
   },
   "scripts": {
     "dev": "webpack --mode development -d --watch ./src/frontend/src/index.js --output ./src/frontend/static/frontend/main.js",

@@ -17,15 +17,14 @@ class Task extends Component {
 
     render() {
         const { category, completed, deadline, description, id, name, start } = this.props.task
-        console.log(this.buttonColor(completed))
         return (
             <div style={{ width: '60rem', }} className=' dark col-md-6 my-1'>
                 <div className="card mx-3 p-3" >
                     <div className="card-body ">
-                        <h5 className="card-title text-italic">{name}</h5>
-                        <h5 className="card-title">{deadline}</h5>
-                        <p className="card-text lead">{description}</p>
-                        <button onClick={this.props.markComplete.bind(this, id)} type="button" className={this.buttonColor(completed)}>Mark completed</button>
+                        <h5 className="card-title text-italic">Name: {name}</h5>
+                        <p className="lead card-text">Description: {description}</p>
+                        <p className="card-text lead font-italic">Deadline: {deadline}</p>
+                        <button onClick={this.props.markComplete.bind(this, id, name)} type="button" className={this.buttonColor(completed)}>Mark completed</button>
                     </div>
                 </div>
             </div >

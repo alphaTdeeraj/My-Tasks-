@@ -27,12 +27,12 @@ export const addTask = (name, description, deadline) => dispatch => {
             type: ADD_TASK,
             payload: res.data
         }))
-        .then(res => dispatch(createMessage('Task added')))
+        .then(res => dispatch(createMessage(`${name} task created`)))
         .catch(err => dispatch(getErrors(err.data)))
 }
 
 
-export const markComplete = (id) => dispatch => {
+export const markComplete = (id, name) => dispatch => {
     const config = {
         "Content-Type": 'application/json'
     }
@@ -44,6 +44,6 @@ export const markComplete = (id) => dispatch => {
         .then(res => dispatch({
             type: MARK_COMPLETE,
             payload: id,
-        }))
+        })).then(res => dispatch(createMessage(`${name} is Completed, Well done...`)))
         .catch(err => dispatch(getErrors(err.data)))
 }
